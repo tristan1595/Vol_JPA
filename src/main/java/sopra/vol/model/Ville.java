@@ -7,8 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "city")
@@ -18,7 +18,7 @@ public class Ville {
 	private Long id;
 	@Column(name = "name")
 	private String nom;
-	@Transient
+	@ManyToMany(mappedBy = "villes")
 	private List<Aeroport> aeroports = new ArrayList<Aeroport>();
 
 	public Ville() {

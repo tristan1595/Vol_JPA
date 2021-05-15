@@ -8,8 +8,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "flight")
@@ -23,15 +25,17 @@ public class Vol {
 	private Date dtDepart;
 	@Column(name = "arrival_date")
 	private Date dtArrivee;
-	@Transient
+	@OneToOne
+	@JoinColumn(name = "departure_airport_code")
 	private Aeroport depart;
-	@Transient
+	@OneToOne
+	@JoinColumn(name = "arrival_airport_code")
 	private Aeroport arrivee;
 	@Column(name = "number_places_available")
 	private int nbPlaceDispo;
-	@Transient
+	@OneToMany(mappedBy = "vol")
 	private List<Billet> billets = new ArrayList<>();
-	@Transient
+	@OneToMany(mappedBy = "vol")
 	private List<CompagnieAerienneVol> compagnieAeriennes = new ArrayList<CompagnieAerienneVol>();
 
 	public Vol() {

@@ -4,8 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "airline_flight")
@@ -15,9 +16,11 @@ public class CompagnieAerienneVol {
 	private Long id;
 	@Column(name = "flight_number")
 	private String numeroVol;
-	@Transient
+	@ManyToOne
+	@JoinColumn(name = "airline_company_code")
 	private CompagnieAerienne compagnieAerienne;
-	@Transient
+	@ManyToOne
+	@JoinColumn(name = "flight_id")
 	private Vol vol;
 
 	public CompagnieAerienneVol() {
