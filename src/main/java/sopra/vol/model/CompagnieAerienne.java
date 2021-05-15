@@ -6,8 +6,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "airline_company")
@@ -16,7 +16,7 @@ public class CompagnieAerienne {
 	private String code;
 	@Column(name = "name")
 	private String nom;
-	@Transient
+	@OneToMany(mappedBy = "compagnieAerienne")
 	private List<CompagnieAerienneVol> vols = new ArrayList<CompagnieAerienneVol>();
 
 	public CompagnieAerienne() {

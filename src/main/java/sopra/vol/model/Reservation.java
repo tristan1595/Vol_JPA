@@ -8,9 +8,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "booking")
@@ -21,11 +22,13 @@ public class Reservation {
 	private Date dtReservation;
 	@Column(name = "booking_state")
 	private StatutReservation statut;
-	@Transient
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
 	private Client client;
-	@Transient
+	@OneToOne
+	@JoinColumn(name = "passenger_id")
 	private Passager passager;
-	@Transient
+	@OneToMany(mappedBy = "reservation")
 	private List<Billet> billets = new ArrayList<>();
 
 	public Reservation() {

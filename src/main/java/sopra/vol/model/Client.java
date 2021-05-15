@@ -10,8 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "customer")
@@ -23,9 +23,9 @@ public abstract class Client {
 	private Long id;
 	@Column(name = "name")
 	private String nom;
-	@Transient
+	@OneToMany(mappedBy = "client")
 	private List<Adresse> adresses = new ArrayList<Adresse>();
-	@Transient
+	@OneToMany(mappedBy = "client")
 	private List<Reservation> reservations = new ArrayList<Reservation>();
 
 	public Client() {
