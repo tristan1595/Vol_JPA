@@ -1,6 +1,13 @@
 package sopra.vol.model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Formateur")
 public class Particulier extends Client {
+	@Column(name = "first_name")
 	private String prenom;
 
 	public String getPrenom() {

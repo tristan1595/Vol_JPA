@@ -1,12 +1,29 @@
 package sopra.vol.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "ticket")
 public class Billet {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column(name = "place_number")
 	private String numeroPlace;
+	@Column(name = "class")
 	private String classe;
+	@Column(name = "price")
 	private float prix;
+	@Column(name = "ranking")
 	private int ordre;
+	@Transient
 	private Reservation reservation;
+	@Transient
 	private Vol vol;
 
 	public Billet() {
