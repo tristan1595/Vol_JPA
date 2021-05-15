@@ -4,15 +4,34 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "flight")
 public class Vol {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column(name = "flight_state")
 	private StatutVol statutVol;
+	@Column(name = "departure_date")
 	private Date dtDepart;
+	@Column(name = "arrival_date")
 	private Date dtArrivee;
+	@Transient
 	private Aeroport depart;
+	@Transient
 	private Aeroport arrivee;
+	@Column(name = "number_places_available")
 	private int nbPlaceDispo;
+	@Transient
 	private List<Billet> billets = new ArrayList<>();
+	@Transient
 	private List<CompagnieAerienneVol> compagnieAeriennes = new ArrayList<CompagnieAerienneVol>();
 
 	public Vol() {

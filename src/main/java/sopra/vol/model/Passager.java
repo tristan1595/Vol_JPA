@@ -1,11 +1,27 @@
 package sopra.vol.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "passenger")
 public class Passager {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column(name = "last_name")
 	private String nom;
+	@Column(name = "first_name")
 	private String prenom;
+	@Column(name = "identity_number")
 	private String numeroIdentite;
+	@Column(name = "identity_type")
 	private TypeIdentite typeIdentite;
+	@Transient
 	private Reservation reservation;
 
 	public Passager() {

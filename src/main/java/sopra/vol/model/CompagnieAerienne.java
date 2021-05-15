@@ -3,9 +3,20 @@ package sopra.vol.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "airline_company")
 public class CompagnieAerienne {
+	@Id
 	private String code;
+	@Column(name = "name")
 	private String nom;
+	@Transient
 	private List<CompagnieAerienneVol> vols = new ArrayList<CompagnieAerienneVol>();
 
 	public CompagnieAerienne() {

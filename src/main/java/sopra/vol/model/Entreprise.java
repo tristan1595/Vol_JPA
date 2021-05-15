@@ -1,8 +1,17 @@
 package sopra.vol.model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("company")
 public class Entreprise extends Client {
+	@Column(name = "siret_number")
 	private String siret;
+	@Column(name = "tva_number")
 	private String numeroTVA;
+	@Column(name = "legal_status")
 	private StatutJuridique statutJuridique;
 
 	public Entreprise() {
