@@ -22,6 +22,11 @@ public class CompagnieAerienne {
 	public CompagnieAerienne() {
 		super();
 	}
+	
+	public CompagnieAerienne(String code) {
+		super();
+		this.code = code;
+	}
 
 	public CompagnieAerienne(String code, String nom) {
 		super();

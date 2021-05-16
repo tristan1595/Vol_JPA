@@ -2,6 +2,8 @@ package sopra.vol.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -19,6 +21,7 @@ public class Passager {
 	private String prenom;
 	@Column(name = "identity_number")
 	private String numeroIdentite;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "identity_type")
 	private TypeIdentite typeIdentite;
 	@OneToOne(mappedBy="passager")

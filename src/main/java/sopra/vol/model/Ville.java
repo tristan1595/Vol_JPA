@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -18,7 +19,7 @@ public class Ville {
 	private Long id;
 	@Column(name = "name")
 	private String nom;
-	@ManyToMany(mappedBy = "villes")
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "villes")
 	private List<Aeroport> aeroports = new ArrayList<Aeroport>();
 
 	public Ville() {

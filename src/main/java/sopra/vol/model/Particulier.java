@@ -5,7 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Formateur")
+@DiscriminatorValue("private")
 public class Particulier extends Client {
 	@Column(name = "first_name")
 	private String prenom;

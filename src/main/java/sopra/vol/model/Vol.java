@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -19,6 +21,7 @@ public class Vol {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "flight_state")
 	private StatutVol statutVol;
 	@Column(name = "departure_date")
