@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,12 +20,17 @@ public class Aeroport {
 	private String code;
 	@Column(name = "name")
 	private String nom;
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "airport_city", joinColumns = @JoinColumn(name = "airport_code"), inverseJoinColumns = @JoinColumn(name = "city_id"))
 	private List<Ville> villes = new ArrayList<Ville>();
 
 	public Aeroport() {
 		super();
+	}
+	
+	public Aeroport(String code) {
+		super();
+		this.code = code;
 	}
 
 	public Aeroport(String code, String nom) {

@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,6 +22,7 @@ public class Reservation {
 	private Integer numero;
 	@Column(name = "booking_date")
 	private Date dtReservation;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "booking_state")
 	private StatutReservation statut;
 	@ManyToOne
@@ -30,9 +33,15 @@ public class Reservation {
 	private Passager passager;
 	@OneToMany(mappedBy = "reservation")
 	private List<Billet> billets = new ArrayList<>();
-
+	
 	public Reservation() {
 		super();
+	}
+
+
+	public Reservation(Integer numero) {
+		super();
+		this.numero = numero;
 	}
 
 	public Reservation(Integer numero, Date dtReservation, StatutReservation statut) {
